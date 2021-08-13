@@ -1,10 +1,7 @@
-// const mysql = require("mysql");
-// const inquirer = require("inquirer");
-// const cTable = require('console.table');
+ const mysql = require("mysql");
+ const inquirer = require("inquirer");
+const cTable = require('console.table');
 
-// const app = express();
-// const PORT = process.env.PORT || 3001;
-// Connect to database
 
 const express = require('express');
 // Import and require mysql2

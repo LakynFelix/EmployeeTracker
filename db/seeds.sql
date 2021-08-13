@@ -11,7 +11,7 @@ VALUES ("Payton", "Moore", 5, null);
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES ("Alex", "Laine", 2, 1);
 
-INSERT INTO role (title, salary, department_id)
+INSERT INTO roles (title, salary, department_id)
 VALUES ("Sales Associate", 800000, 1);
 INSERT INTO role (title, salary, department_id)
 VALUES ("Finance", 123000, 2);
@@ -20,7 +20,7 @@ VALUES ("Engineer", 100000, 3);
 INSERT INTO role (title, salary, department_id)
 VALUES ("Legal", 280000, 4);
 
-INSERT INTO department (name)
+INSERT INTO departments (name)
 VALUES ("Sales Associate");
 INSERT INTO department (name)
 VALUES ("Finance");
