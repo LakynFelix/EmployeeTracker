@@ -1,6 +1,7 @@
  const mysql = require("mysql2");
 const cTable = require('console.table');
 const inquirer = require('inquirer');
+const { response } = require("express");
 
 // Connect to database
 const db = mysql.createConnection(
@@ -14,13 +15,13 @@ const db = mysql.createConnection(
   console.log(`Connected to the employeedb database.`)
 );
 
-const roles;
+const role;
 const departments;
 const employees;
 
 // simple query
-db.query ("SELECT * FROM roles", function (error, res) {
-  roles = res.map(roles => ({ name: roles.title, value: role.id }))
+db.query("SELECT * FROM roles", function (error, res) {
+  role = res.map(roles => ({ name: roles.title, value: role.id }))
 })
 db.query("SELECT * FROM departments", function (error, res) {
   departments = res.map(dep => ({ name: dep.name, value: dep.id }))
@@ -105,4 +106,70 @@ function listMenu(option) {
     case "quit":
       end();
   }
+}
+
+function addEmployee() {
+  inquirer.prompt([
+    {
+      type: "input",
+      message: "Enter the first name of the Employee",
+      name: "first_name",
+    },
+    {
+      type: "input",
+      message: "Enter the last name of the Employee",
+      name: "last_name",
+    },
+    {
+      type: "list",
+      message: "What is the Employee's Title?",
+      name: "title",
+      choices: roles,
+    },
+    {
+      type: "list",
+      message: "Who is the Employees Manager ?",
+      name: "manager_id",
+      choices: employees,
+    } 
+  ]).then(function (res) {
+    addEmployee(response)
+  })
+}
+
+
+function addDepartment() {
+  inquirer.prompt([
+    {
+      type: "input",
+      message: "Enter the name of the apartment",
+      name: "department_name",
+    },
+    {
+      type: "list",
+      message: "What is the Department's Manager?",
+      name: "manager_id",
+      choices: employees,
+    } 
+  ]).then(function (res) {
+    addDepartment(response)
+  })
+}
+
+function addRole() {
+  inquirer.prompt([
+    {
+      type: "input",
+      message: "What is the name of the Role",
+      name: "role_id",
+    },
+    {
+      type: "list",
+      message: "What is your Salary?",
+      name: "salary",
+      choices: departments,
+    } 
+  ]).then(function (res) {
+    addRole(response)
+  })
 }
