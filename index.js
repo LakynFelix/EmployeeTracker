@@ -57,7 +57,7 @@ Function listMenu()  {
           value: "addEmployee"
         },
         {
-          name: "Add A department",
+          name: "Add A Department",
           value: "addDepartment"
         },
         {
@@ -77,4 +77,32 @@ Function listMenu()  {
      
     listMenu(res.choices)
   })
+}
+
+function listMenu(option) {
+  switch (option) {
+    case "viewEmployees":
+      viewAllEmployees();
+      break;
+    case "viewDepartments":
+      viewAllDepartments();
+      break;
+    case "viewRoles":
+      viewAllRoles();
+      break;
+    case "addEmployee":
+      addEmployee();
+      break;
+    case "addDept":
+      addDepartment();
+      break;
+    case "addRole":
+      addRole();
+      break;
+    case "updateRole":
+      updateRole();
+      break;
+    case "quit":
+      end();
+  }
 }
