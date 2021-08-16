@@ -31,20 +31,16 @@ connection.query("SELECT * FROM employee", function (error, res) {
   employees = res.map(emp => ({ name: `${emp.first_name} ${emp.last_name}`, value: emp.id }))
 })
 
-listMenu();
+StartUp();
 
 
-Function listMenu()  {
+Function StartUp() {
   inquirer.prompt(
     {
       type: "list",
       message: "Welcome to My EmployeeTracker. What would you like to do first?",
       name: "choices",
       choices: [
-        {
-          name: "View All Employees",
-          value: "viewEmployees"
-        },
         {
           name: "View All Departments",
           value: "viewDepartments"
@@ -54,33 +50,37 @@ Function listMenu()  {
           value: "viewRoles"
         },
         {
-          name: "Add A Employee",
-          value: "addEmployee"
+          name: "View All Employees",
+          value: "viewEmployees"
         },
         {
           name: "Add A Department",
           value: "addDepartment"
         },
         {
-          name: "Add  A Role",
+          name: "Add A Role",
           value: "addRole"
         },
         {
-          name: "Update A Role",
+          name: "Add A Employee",
+          value: "addEmployee"
+        },
+        {
+          name: "Update A Employee",
           value: "updateRole"
         },
         {
-          name: "Quit ",
+          name: "Quit",
           value: "quit"
         }
       ]
     }).then(function (res){
      
-    listMenu(res.choices)
-  })
+    StartUp(res.choices)
+    })
 }
 
-function listMenu(option) {
+function StartUp(option) {
   switch (option) {
     case "viewEmployees":
       viewAllEmployees();
@@ -142,7 +142,7 @@ function addDepartment() {
   inquirer.prompt([
     {
       type: "input",
-      message: "Enter the name of the apartment",
+      message: "Enter the name of the Department",
       name: "department_name",
     },
     {
@@ -172,4 +172,46 @@ function addRole() {
   ]).then(function (res) {
     addRole(response)
   })
+}
+
+function updateRole() {
+  inquirer.prompt([
+    {
+      type: "list",
+      message: "What Employee would you like to update?",
+      name: "role_id",
+    },
+    {
+      type: "list",
+      message: "What is your Salary?",
+      name: "salary",
+      choices: departments,
+    } 
+  ]).then(function (res) {
+    addRole(response)
+  })
+}
+
+function updateEmployeeRole(data) {
+  connection.query(`UPDATE Employee role_id = ${data.titleID} WHERE id = ${data.empID}`,
+  function (error, res) {
+    // console.log(error, res);
+    if (error) throw error;
+  });
+  closeMenu();
+}
+
+function closeMenu() {
+  confirm("Would you like to continue?")
+  .then(function confirmed() {
+    StartUp();
+  }, function cancelled() {
+    end();
+  });
+}
+
+function end() {
+  console.log("Thank you Goodbye :) ");
+  connection.end();
+  process.exit();
 }
