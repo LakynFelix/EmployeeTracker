@@ -17,7 +17,7 @@ Using node.s we a created an Employee tracker using node, inquirer, and MySQL.
   Node.js, MySql,   
 
 
-##  Professional Readme 
+##  Employe Tracker
 ## GitHub Profile: https://github.com/LakynFelix   
 ## GitHub Repo:  https://github.com/LakynFelix/EmployeeTracker
 ## Email: Lakynmphotography@hotmail.com 
