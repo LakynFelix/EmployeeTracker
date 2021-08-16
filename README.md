@@ -11,7 +11,7 @@
 
  
 # Description: 
-Using node.s we a created an Employee tracker using node, inquirer, and MySQL.
+I created an Employee tracker using node, inquirer, and MySQL, to keep track of employee managers roles, salary and department.
 
 # Usage: 
   Node.js, MySql,   
