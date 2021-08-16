@@ -24,7 +24,7 @@ I created an Employee tracker using node, inquirer, and MySQL, to keep track of 
 ## Email: Lakynmphotography@hotmail.com 
 
 ## Preview of project
-https://drive.google.com/file/d/1SzD789s2evvLqUpT8-ezcVeAHdPIz8Nc/view
+https://drive.google.com/file/d/1rlwwlTGSCoW2suByAfWemZsp51fr_hW_/view
 
 # License:  
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
