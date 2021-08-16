@@ -11,10 +11,10 @@
 
  
 # Description: 
-Using node we took in information from the user to generate a random readme.md file whenever you run through it.   
+Using node.s we a created an Employee tracker using node, inquirer, and MySQL.
 
 # Usage: 
-  Node.js, mySql,   
+  Node.js, MySql,   
 
 
 ##  Professional Readme 
